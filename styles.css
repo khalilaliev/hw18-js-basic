@@ -2,8 +2,23 @@ ul {
   padding: 0;
 }
 
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px 20px 0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+form label {
+  margin-right: 10px;
+  flex-shrink: 1;
+}
+
 .posts {
-  width: 500px;
+  width: 550px;
   margin: 30px auto 0;
   color: #2c2c2c;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -55,6 +70,7 @@ input:focus {
   font-size: 16px;
   background-color: #212121;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .btn-edit:hover {
@@ -72,10 +88,25 @@ input:focus {
   font-size: 16px;
   background-color: #dc3540;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .btn-delete:hover {
   background-color: #b82932;
+}
+
+.btn-create {
+  color: white;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #1755ff;
+  cursor: pointer;
+}
+
+.btn-create:hover {
+  background-color: #083ed1;
 }
 
 .show {
