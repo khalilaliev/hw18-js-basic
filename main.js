@@ -37,7 +37,7 @@ createButton.addEventListener("click", (event) => {
   let newPost = {
     title: "",
     body: "",
-    id: currentId,
+    id: String(currentId),
   };
   newPost.title = inputTitle.value;
   newPost.body = inputBody.value;

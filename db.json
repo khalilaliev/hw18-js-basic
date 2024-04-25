@@ -1,3 +1,9 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "First Post",
+      "body": "We have created first post",
+      "id": "1"
+    }
+  ]
 }
