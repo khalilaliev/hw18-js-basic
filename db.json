@@ -1,24 +1,3 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "pkswejfkjse",
-      "body": "fgnfg"
-    },
-    {
-      "id": 2,
-      "title": "fgnfgn",
-      "body": "fgn"
-    },
-    {
-      "id": 3,
-      "title": "fgnfgn",
-      "body": "fgn"
-    },
-    {
-      "id": 4,
-      "title": "фыам",
-      "body": "ывм"
-    }
-  ]
+  "posts": []
 }
