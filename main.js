@@ -1,5 +1,110 @@
 "use strict";
 
+// Level 1 //
+
+// ---------------task-1--------------- //
+
+const URL_API_SOURCE = "https://jsonplaceholder.typicode.com/";
+
+function getApiData(source) {
+  fetch(`${URL_API_SOURCE}${source}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Response is not found!");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getApiData("todos/");
+getApiData("comments/");
+getApiData("users/");
+getApiData("posts/");
+
+// ---------------task-2--------------- //
+
+async function getDataByAsyncAwait(source) {
+  try {
+    const response = await fetch(`${URL_API_SOURCE}${source}`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+getDataByAsyncAwait("/todos/");
+getDataByAsyncAwait("/comments/");
+
+// ---------------task-3--------------- //
+
+// const todoButton = document.querySelector(".todo__title");
+// const commentsBody = document.querySelector(".comment__body");
+// const ul = document.querySelector(".todo__list");
+
+// async function getPersonalData(endpoint) {
+//   const response = await fetch(`${URL_API_SOURCE}${endpoint}`);
+//   const data = await response.json();
+//   data.forEach((title, index) => {
+//     const li = document.createElement("li");
+//     li.innerHTML = `${index + 1}: ${title.title}`;
+//     ul.appendChild(li);
+//   });
+// }
+
+// todoButton.addEventListener("click", () => {
+//   getPersonalData("/todos/");
+//   getPersonalData("/todos/");
+// });
+
+function getPersonalData(endpoint, key) {
+  fetch(`${URL_API_SOURCE}${endpoint}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Not found!");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      result.map((item, index) => {
+        console.log(`${index + 1}: ${item[key]}`);
+      });
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+}
+
+function getPersonData(endpoint, data1, data2) {
+  fetch(`${URL_API_SOURCE}${endpoint}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Not found!");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      result.map((item, index) => {
+        return console.log(`${item[data1]}: ${item[data2]}`);
+      });
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
+getPersonalData("/todos/", "title");
+getPersonalData("/comments/", "body");
+
+getPersonData("/users/", "name", "email");
+getPersonData("/posts/", "id", "title");
+
+// Level 2 //
+
 const URL_HOST = "http://localhost:3000/posts";
 
 const loader = document.querySelector(".loader");
@@ -25,7 +130,7 @@ async function getCurrentId() {
       (max, post) => (post.id > max ? post.id : max),
       0
     );
-    currentId = maxId + 1;
+    currentId = parseInt(maxId) + 1;
   } catch (error) {
     console.error(error.message);
   }
